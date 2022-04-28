@@ -1,0 +1,36 @@
+node {
+    stage('git clone') {
+        
+      git credentialsId: 'github', url: 'https://github.com/shajahan7866/maven.git'
+
+    }
+   stage('maven clean') {
+
+      powershell 'mvn clean'
+    }
+
+   stage('maven validate') {
+
+      powershell 'mvn package'
+    }
+
+   stage('maven compile') {
+
+      powershell 'mvn compile'
+   }
+
+  stage('maven test') {
+
+     powershell 'mvn test'
+  
+  }
+
+  stage('maven package') {
+
+     powershell 'mvn package'
+ 
+  }
+
+  }
+
+
